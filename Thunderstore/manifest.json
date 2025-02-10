@@ -1,7 +1,7 @@
 {
     "name": "NoVoidDeath",
     "version_number": "1.0.0",
-    "website_url": "https://github.com/MehimoNemo/LethalCompanyShrinkRay",
+    "website_url": "https://github.com/AboveFire/NoVoidDeath",
     "description": "A Lethal Company mod that makes it so you don't get killed by botched TPs.",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100"
