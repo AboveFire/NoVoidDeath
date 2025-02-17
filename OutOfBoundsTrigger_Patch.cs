@@ -35,8 +35,21 @@ namespace NoVoidDeath
                 {
                     // Here that's when a player get's killed
                     component.ResetFallGravity();
-                    component.isInsideFactory = false;
-                    component.TeleportPlayer(UnityEngine.Object.FindObjectOfType<StartOfRound>().outsideShipSpawnPosition.position);
+                    switch (Plugin.TpLocationConfig)
+                    {
+                        case Plugin.LocationType.Ship:
+                            component.isInsideFactory = false;
+                            component.TeleportPlayer(UnityEngine.Object.FindObjectOfType<StartOfRound>().outsideShipSpawnPosition.position);
+                            break;
+                        case Plugin.LocationType.Entrance:
+                            component.TeleportPlayer(UnityEngine.Object.FindObjectOfType<EntranceTeleport>().entrancePoint.position);
+                            break;
+                        default:
+                            // Dunno what we're doing here if default, I guess we just let everything play out normally
+                            return true;
+                    }
+                    Plugin.Log("Saved from falling out of bounds!");
+
                     return false;
                 }
             }
